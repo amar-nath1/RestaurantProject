@@ -5,26 +5,26 @@ const AvailableMeals=()=>{
     const DUMMY_MEALS = [
         {
           id: 'm1',
-          name: 'Sushi',
-          description: 'Finest fish and veggies',
+          name: 'Margherita',
+          description: 'The Margherita pizza Dominos is made using the freshest pizza dough',
           price: 22.99,
         },
         {
           id: 'm2',
-          name: 'Schnitzel',
-          description: 'A german specialty!',
+          name: 'Veggie Supreme',
+          description: 'Black Olives, Green Capsicum, Mushroom, Onion, Red Paprika, Sweet Corn',
           price: 16.5,
         },
         {
           id: 'm3',
-          name: 'Barbecue Burger',
-          description: 'American, raw, meaty',
+          name: 'Classic Corn',
+          description: 'Pizza topped with our Classic Pan sauce, sweet corn and cheesy dressing. An all-time favorite.',
           price: 12.99,
         },
         {
           id: 'm4',
-          name: 'Green Bowl',
-          description: 'Healthy...and green...',
+          name: 'Only Cheesy',
+          description: 'Pizza topped with cheesy dressing and mozzarella cheese for that extraaa cheesy flavor.',
           price: 18.99,
         },
       ];
