@@ -3,11 +3,17 @@ import Input from '../UI/Input'
 import React,{useState} from 'react'
 import CartModal from '../Cart/CartModal'
 
+
 const MealItemForm=(props)=>{
     const [showCartModal,setShowCartModal]=useState(false)
 
-    const addItemHandler=()=>{
+    const addItemHandler=(event)=>{
+        event.preventDefault()
         setShowCartModal(true)
+    }
+    const hideCartModal=()=>{
+
+        setShowCartModal(false)
     }
 
     return (
@@ -22,9 +28,9 @@ const MealItemForm=(props)=>{
                 step:'1',
                 defaultValue:'1'
             }}></Input>
-            <button> + Item</button>
+            <button onClick={addItemHandler}> + Item</button>
         </form>
-            {showCartModal && <CartModal/>}
+            {showCartModal && <CartModal hideCartModal={hideCartModal}/>}
         </>
     )
 }
