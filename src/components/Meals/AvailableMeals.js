@@ -30,7 +30,7 @@ const AvailableMeals=()=>{
       ];
 
 const mealsList=DUMMY_MEALS.map(meal=>
-<li id={meal.id} key={meal.id} className={classes.item}><div><h3>{meal.name}</h3><div>{meal.description}</div><div><h4>$ {meal.price}</h4></div></div><div><MealItemForm id={meal.id}/></div></li>)
+<li id={meal.id} key={meal.id} className={classes.item}><div><h3>{meal.name}</h3><div>{meal.description}</div><div><h4>$ {meal.price}</h4></div></div><div><MealItemForm dummyMeals={meal} id={meal.id}/></div></li>)
     return (
         <section className={classes.meals}>
             <ul>

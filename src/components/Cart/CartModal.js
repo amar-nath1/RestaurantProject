@@ -1,8 +1,9 @@
 import classes from './CartModal.module.css'
 import Card from '../UI/Card'
-import React from 'react'
+import React, { useContext } from 'react'
 import ReactDOM from 'react-dom'
 import { Button } from '../UI/Button'
+import CartContext from '../../store/cart-context'
 
 const Backdrop=(props)=>{
 
@@ -14,12 +15,31 @@ const Backdrop=(props)=>{
 
 const ModalOverlay=(props)=>{
 
+    const modalCtx=useContext(CartContext)
+let totalAmount= 0
+    const modalArr=modalCtx.items.map((item)=>{
+        totalAmount+=(item.qty*item.price)
+
+        return (
+            <>
+
+            <div className={classes.content}><p>{item.name}</p></div>
+            <header className={classes.header}>
+                <p>Qty- {item.qty}</p><h3>Rs. {(item.qty*item.price).toFixed(2)}</h3>
+                
+            </header>
+            
+            </>
+
+        )
+    })
+
     return (
         <Card className={classes.modal}>
-            <div className={classes.content}><p>Margherita</p></div>
-            <header className={classes.header}>
-                <h2>Total Amount</h2><h3> $ 22.9</h3>
-            </header>
+           
+        {modalArr}
+        <div className={classes.totalAmt}><h3>Total Amount</h3><h3> Rs. {totalAmount.toFixed(2)}</h3></div>
+
             <footer className={classes.actions}><Button onClick={props.hideCartModal}>Close</Button><Button>Order</Button></footer>
         </Card>
 

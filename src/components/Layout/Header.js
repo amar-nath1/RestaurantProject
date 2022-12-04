@@ -2,9 +2,12 @@ import mealsImage from '../../assets/meals.jpg'
 import classes from './Header.module.css'
 import HeaderCartButton from './HeaderCartButton'
 import CartModal from '../Cart/CartModal'
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
+
+
 
 const Header =()=>{
+    
 
     const [cartModalshow,setCartModalShow]=useState(false)
     const showCartModal=()=>{
@@ -14,7 +17,6 @@ const Header =()=>{
     const hideCartModal=()=>{
         setCartModalShow(false)
     }
-
     return (
         <>
         <header className={classes.header}>
