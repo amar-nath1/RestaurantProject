@@ -1,6 +1,6 @@
 import CartContext from "./cart-context"
 
-import React, { useEffect, useState } from "react"
+import React, {useState } from "react"
 
 const CartProvider = (props) => {
 
@@ -30,13 +30,30 @@ const CartProvider = (props) => {
 
     }
 
-    useEffect(() => {
 
+    const removeItemFromCartHandler = (dumMeal) => {
 
+        setItems((prev) => {
 
-    }, [items])
+            let exiItemInd = prev.findIndex((item) => {
+                return item.id == dumMeal.id
+            })
+            
+            if (exiItemInd == -1) {
 
-    const removeItemFromCartHandler = (id) => { }
+                return
+
+            }
+            else {
+                let intQty=parseInt(prev[exiItemInd].qty)
+
+                prev[exiItemInd].qty=intQty-Number(dumMeal.qty)
+
+                return [...prev]
+            }
+        })
+
+     }
 
     const cartContext = {
         items: items,

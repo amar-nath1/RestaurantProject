@@ -12,10 +12,14 @@ const MealItemForm=(props)=>{
         event.preventDefault()
         const dummyMealWithQty= {...props.dummyMeals,qty:document.getElementById('quantity_'+props.id).value}
         itemAddCtx.addItem(dummyMealWithQty)
-        
-        
-        
-          
+                
+    }
+
+    const removeItemHandler=(event)=>{
+        event.preventDefault()
+        const dummyMealWithQty= {...props.dummyMeals,qty:document.getElementById('quantity_'+props.id).value}
+        itemAddCtx.removeItem(dummyMealWithQty)
+                
     }
     
     return (
@@ -30,7 +34,7 @@ const MealItemForm=(props)=>{
                 step:'1',
                 defaultValue:'1'
             }}></Input>
-            <button onClick={addItemHandler}> + Item</button>
+           <button className={classes.reduceItem} onClick={removeItemHandler}> - </button> <button onClick={addItemHandler}> + </button>
         </form>
             
         </>
